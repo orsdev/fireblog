@@ -8,6 +8,7 @@ module.exports = {
       center: true,
     },
     extend: {
+      colors: { primary: "#303030" },
       screens: {
         xs: "475px",
         ...defaultTheme.screens,
