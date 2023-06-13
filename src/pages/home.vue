@@ -1,17 +1,19 @@
 <template>
   <div class="p-0">
    <Hero />
+   <Featured />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Hero } from '@/components/home'
+import { Featured, Hero } from '@/components/home'
 
 export default defineComponent({
   name: "Home-page",
   components: {
-    Hero
-  }
+    Hero,
+    Featured
+}
 });
 </script>
