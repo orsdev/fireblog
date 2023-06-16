@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeVue from "@/pages/home.vue";
 import BlogVue from "@/pages/blogs.vue";
+import LoginVue from "@/pages/login.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,15 @@ const router = createRouter({
       meta: {
         protected: false,
         title: 'Blog'
+      },
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: LoginVue,
+      meta: {
+        protected: false,
+        title: 'Log in'
       },
     },
   ],
