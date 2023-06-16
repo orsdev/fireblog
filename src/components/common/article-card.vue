@@ -2,7 +2,7 @@
   <div class="border rounded-lg">
     <img
       src="https://images.unsplash.com/photo-1686515815090-fcf7f9028950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=40"
-      alt="image" class="w-full h-auto lg:h-[15vw] max-h-[240px]">
+      alt="image" class="w-full h-auto lg:h-[15vw] max-h-[200px] object-cover">
     <div class="p-5 text-primary">
       <h4 class="text-[16px] md:text-[18px] font-light  mb-5">{{ title }}</h4>
       <p class="text-[.8rem]">Poster on: {{ time_uploaded }}</p>
