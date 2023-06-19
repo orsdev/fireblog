@@ -3,6 +3,7 @@ import HomeVue from "@/pages/home.vue";
 import BlogVue from "@/pages/blogs.vue";
 import LoginVue from "@/pages/login.vue";
 import RegisterVue from "@/pages/register.vue";
+import CreatePostVue from "@/pages/create-post.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,15 @@ const router = createRouter({
       meta: {
         protected: false,
         title: 'Log in'
+      },
+    },
+    {
+      path: "/create-post",
+      name: "create-post",
+      component: CreatePostVue,
+      meta: {
+        protected: true,
+        title: 'Add post'
       },
     },
     {

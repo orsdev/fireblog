@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.12",
+    "axios": "^1.4.0",
     "dayjs": "^1.11.8",
     "firebase": "v8",
     "pinia": "^2.0.32",

@@ -5,14 +5,23 @@
     <div class="flex flex-col gap-4 uppercase">
       <router-link to="/"> Home </router-link>
       <router-link to="/blogs"> Blogs </router-link>
-      <router-link to="/login"> Log in / Register </router-link>
+      <router-link to="/login" v-if="!user"> Log in / Register </router-link>
     </div>
     <p>Copyright 2021 All Rights Reserved</p>
   </div>
 </template>
 
 <script lang="ts">
+import { useUserStore } from '@/store';
+import { storeToRefs } from 'pinia';
+
 export default {
-  name: 'footer-component'
+  name: 'footer-component',
+  setup() {
+    const userStore = useUserStore();
+    const { user } = storeToRefs(userStore);
+
+    return { user }
+  },
 }
 </script>
