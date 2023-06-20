@@ -11,12 +11,14 @@
 <script lang="ts">
 import { usePostsStore } from '@/store';
 import { ArticleCard } from '@/components/common';
+import { storeToRefs } from 'pinia';
 
 export default {
   name: 'recent-blogs',
   setup() {
     const storePosts = usePostsStore();
-    return { posts: storePosts.posts }
+    const { blogPosts } = storeToRefs(storePosts);
+    return { posts: blogPosts }
   },
   components: { ArticleCard }
 }

@@ -74,7 +74,7 @@ export default {
         const userCredential = await auth.signInWithEmailAndPassword(values.email, values.password);
         this.loading = false;
 
-        const user = userCredential.user;
+        const user = userCredential.user as any;
 
         // Retrieve additional user info from Firestore
         const uid = user.uid;

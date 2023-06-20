@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 
 type UserProps = {
+  profileId: string;
   username: string;
   email: string;
   first_name: string;

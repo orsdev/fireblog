@@ -4,6 +4,8 @@ import BlogVue from "@/pages/blogs.vue";
 import LoginVue from "@/pages/login.vue";
 import RegisterVue from "@/pages/register.vue";
 import CreatePostVue from "@/pages/create-post.vue";
+import SingleBlogVue from "@/pages/single-blog.vue";
+import { useUserStore } from "@/store";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +23,15 @@ const router = createRouter({
       path: "/blogs",
       name: "blogs",
       component: BlogVue,
+      meta: {
+        protected: false,
+        title: 'Blog'
+      },
+    },
+    {
+      path: "/blog/:id",
+      name: "blogs:id",
+      component: SingleBlogVue,
       meta: {
         protected: false,
         title: 'Blog'
@@ -54,10 +65,18 @@ const router = createRouter({
       },
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  }
 });
 
-router.beforeEach((to, from) => {
+router.beforeEach((to, from, next) => {
+  const store = useUserStore();
   document.title = `${to.meta?.title} | Fireblog` ?? 'Fireblog'
+
+  if (!store.user && to.meta?.protected) {
+    next({ name: 'login' })
+  } else next()
 })
 
 export default router;

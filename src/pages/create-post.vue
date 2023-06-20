@@ -46,6 +46,8 @@ import { post_collection } from '@/firebase';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import { defineComponent } from "vue";
 import * as yup from 'yup';
+import { useUserStore } from '@/store';
+import { storeToRefs } from 'pinia';
 
 const validationSchema = yup.object({
   blogTitle: yup.string().required(),
@@ -56,7 +58,9 @@ const validationSchema = yup.object({
 export default defineComponent({
   name: "create-post-page",
   setup() {
-    return { validationSchema }
+    const userStore = useUserStore();
+    const { user } = storeToRefs(userStore)
+    return { validationSchema, user }
   },
   data() {
     return {
@@ -82,7 +86,7 @@ export default defineComponent({
             blogCoverPhoto: url,
             blogCoverPhotoName: fileName,
             blogTitle: values.blogTitle,
-            profileId: null,
+            profileId: this.user?.profileId,
             date: timestamp,
           })
 
@@ -101,9 +105,6 @@ export default defineComponent({
     async onUploadImage(file: any, callback: (url: string) => void) {
       const toast = (this as any).toast;
       this.loading = true;
-
-      const fileName = file.name;
-
 
       try {
         const fd = new FormData();

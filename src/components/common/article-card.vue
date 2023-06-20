@@ -22,7 +22,7 @@
       <p class="text-[.8rem]">Poster on: {{ formattedDate }}</p>
       <div class="mt-[45px]">
         <router-link class="flex items-center font-normal cursor-pointer uppercase text-[.8rem] hover:underline"
-          to="`blog/${{id}}`">
+          :to="`blog/${post.blogID}`">
           <span>
             VIEW THE POST
           </span>

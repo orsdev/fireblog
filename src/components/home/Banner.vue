@@ -6,7 +6,7 @@
     <div>
       <router-link v-if="!user"
         class=" mx-auto sm:mx-0 sm:ml-auto flex justify-center items-center font-normal cursor-pointer uppercase text-[.8rem] bg-black text-white w-[200px] text-center px-5 py-3 rounded-lg hover:bg-slate-700"
-        to="`blog/${{id}}`">
+        to="/register">
         <span>
           Register
         </span>
